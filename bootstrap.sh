@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ ! command -v git &> /dev/null ]
+if ! command -v git &> /dev/null
 then
     sudo apt-get update && sudo apt-get install -y git
 fi
