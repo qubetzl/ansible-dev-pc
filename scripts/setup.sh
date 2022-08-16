@@ -7,7 +7,7 @@ then
     packagesToInstall="python3-pip"
 fi
 
-if [ ! -f "/usr/share/doc/python3-venv" ]
+if [ ! -d "/usr/share/doc/python3-venv" ]
 then
     packagesToInstall="${packagesToInstall} python3-venv"
 fi
