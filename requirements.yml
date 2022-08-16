@@ -1,0 +1,7 @@
+---
+collections:
+  - name: community.general
+    version: 5.4.0
+roles:
+  - name: diodonfrost.jetbrains_toolbox
+    version: 0.9.0

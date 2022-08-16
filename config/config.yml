@@ -1,0 +1,31 @@
+---
+- name: Determine if target is virtualized
+  block:
+    - name: Read system vendor
+      ansible.builtin.slurp:
+        src: /sys/devices/virtual/dmi/id/sys_vendor
+      register: sys_vendor_resp
+    - name: Set value for sys_vendor
+      ansible.builtin.set_fact:
+        sys_vendor: "{{ sys_vendor_resp['content'] | b64decode | trim }}"
+    - name: Set value for 'is_virtual_machine' fact
+      ansible.builtin.set_fact:
+        is_virtual_machine: "{{ sys_vendor in ['QEMU', 'innotek GmbH']}}"
+- name: Include VM specific config
+  include_vars: vm.config.yml
+  when: is_virtual_machine
+
+- name: Include Physical machine specific config
+  include_vars: physical.config.yml
+  when: not is_virtual_machine
+
+- name: Define default Playbook configuration
+  include_vars: default.config.yml
+
+- name: Apply overrides for default Playbook config
+  include_vars: "{{ item }}"
+  with_fileglob:
+    - "{{ playbook_dir }}/*local.config.yml"
+
+- name: Produce final Playbook configuration
+  include_vars: helper.config.yml

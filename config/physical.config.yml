@@ -1,0 +1,4 @@
+---
+_physical_only_packages:
+  - usbutils
+  - lm-sensors

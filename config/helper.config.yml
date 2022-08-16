@@ -1,0 +1,4 @@
+---
+packages: "{{ _packages + (_packages_extra | default([])) }}"
+
+flatpaks: "{{ _flatpaks + (_flatpaks_extra | default([])) }}"

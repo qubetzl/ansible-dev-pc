@@ -1,0 +1,16 @@
+---
+- hosts: all
+  vars_files:
+    - vars/vault.yml
+
+  tasks:
+    - name: Make sure we are not doing this on the local environment
+      ansible.builtin.assert:
+        that:
+          - ansible_connection != 'local'
+        quiet: true
+    - name: Setup ssh key login
+      ansible.posix.authorized_key:
+        user: "{{ ansible_ssh_user }}"
+        state: present
+        key: "{{ lookup('file', '/home/' + lookup('env', 'USER') + '/.ssh/id_rsa.pub') }}"

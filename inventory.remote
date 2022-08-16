@@ -1,0 +1,5 @@
+10.11.0.119
+
+[all:vars]
+ansible_user=qubetzl
+ansible_connection=ssh

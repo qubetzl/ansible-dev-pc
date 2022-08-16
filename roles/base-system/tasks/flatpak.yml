@@ -1,0 +1,16 @@
+- name: Ensure Flatpak is installed
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  become: true
+  loop:
+    - flatpak
+    - flatpak-xdg-utils
+
+- name: Configure Flatpak repo
+  community.general.flatpak_remote:
+    name: flathub
+    method: system
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    state: present
+  become: true

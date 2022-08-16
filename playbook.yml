@@ -1,0 +1,20 @@
+---
+- hosts: all
+  vars_files:
+    - vars/vault.yml
+
+  pre_tasks:
+    - name: Load Playbook config
+      include_tasks: config/config.yml
+
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+      changed_when: false
+      become: true
+
+  roles:
+    - role: base-system
+    - role: packages
+    - role: diodonfrost.jetbrains_toolbox

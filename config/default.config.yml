@@ -1,0 +1,35 @@
+---
+_common_packages:
+  - ntfs-3g
+  # Cli
+  - apt-file
+  - bsdutils
+  - etckeeper
+  - fdisk
+  - gddrescue
+  - git
+  - gnupg
+  - htop
+  - less
+  - net-tools
+  - rsync
+  - smbclient
+  - sudo
+  - telnet
+  - testdisk
+  - tree
+  - unrar
+  - vim
+  - xxd
+  - powerline
+  # Gui
+  - qdirstat
+  - vlc
+  - gparted
+  - keepass2
+
+_packages: "{{ _common_packages + (_vm_packages_extra | default([])) + (_physical_packages_extra | default([]))}}"
+
+_flatpaks:
+  - com.slack.Slack
+  - org.remmina.Remmina

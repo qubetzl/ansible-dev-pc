@@ -1,0 +1,6 @@
+---
+_vm_only_packages:
+  - gcc
+  - make
+  - perl
+  - linux-headers-generic

@@ -1,0 +1,8 @@
+---
+- name: Ensure Flatpak apps are installed
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    method: user
+    remote: flathub
+  loop: "{{ flatpaks }}"

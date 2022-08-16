@@ -1,0 +1,9 @@
+# Dev env
+.cache
+.vault-password
+
+# During setup
+.collections
+.roles
+venv
+config/*local.config.yml

@@ -1,0 +1,17 @@
+---
+- name: Import Brave keyring
+  ansible.builtin.get_url:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+    checksum: sha256:3cc5fd084c3c3fb9d03bd6de88c32e78822b7d84f0c7ce95d7933c57f3b85648
+  become: true
+- name: Setup APT sources
+  ansible.builtin.apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+    filename: brave-browser-release
+    update_cache: true
+    state: present
+  become: true
