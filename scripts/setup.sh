@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+packagesToInstall=""
 if [ ! command -v pip3 &> /dev/null ]
 then
-    apt-get install -y python3-pip
+    packagesToInstall="python3-pip"
 fi
 
 if [ ! -f "/usr/share/doc/python3-venv" ]
 then
-    apt-get install -y python3-venv
+    packagesToInstall="${packagesToInstall} python3-venv"
+fi
+
+if [[ -n "${packagesToInstall}" ]]
+then
+    sudo apt-get update
+    sudo apt-get install -y ${packagesToInstall}
 fi
 
 [ ! -d "venv" ] && python3 -m venv venv
