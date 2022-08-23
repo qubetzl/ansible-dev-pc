@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  vars_files:
-    - vars/vault.yml
 
   tasks:
     - name: Make sure we are not doing this on the local environment

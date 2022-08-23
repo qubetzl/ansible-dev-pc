@@ -1,7 +1,5 @@
 ---
 - hosts: all
-  vars_files:
-    - vars/vault.yml
 
   pre_tasks:
     - name: Load Playbook config
