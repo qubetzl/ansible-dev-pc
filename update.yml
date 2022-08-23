@@ -6,6 +6,7 @@
       ansible.builtin.apt:
         update_cache: true
         cache_valid_time: 3600
+        lock_timeout: "{{ apt_lock_timeout }}"
       changed_when: false
       become: true
 
@@ -13,4 +14,5 @@
     - name: Make sure APT packages are updated
       ansible.builtin.apt:
         upgrade: safe
+        lock_timeout: "{{ apt_lock_timeout }}"
       become: true

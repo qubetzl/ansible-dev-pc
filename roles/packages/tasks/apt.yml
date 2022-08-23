@@ -3,5 +3,6 @@
   ansible.builtin.apt:
     name: "{{ item }}"
     state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
   loop: "{{ packages }}"
   become: true
