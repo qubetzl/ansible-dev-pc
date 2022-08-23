@@ -8,14 +8,17 @@ The setup is designed to be able to be used to setup both the local and a remote
 
 ## Running locally
 
+### Fresh install
 Run the following command from a fresh install to bootstrap the machine and run the playbook.
 ```bash
 wget https://raw.githubusercontent.com/qubetzl/ansible-dev-pc/master/bootstrap.sh && bash bootstrap.sh
 ```
 
-Or run the following on an already bootstrapped machine.
+**Note: It would prompt you for a sudo password multiple times during setup.**
+
+### Already bootstrapped
 ```bash
-./scripts/setup.sh
+./scripts/setup.sh --interactive
 ```
 
 ## Running on a remote machine
