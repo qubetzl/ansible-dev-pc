@@ -18,7 +18,7 @@ wget https://raw.githubusercontent.com/qubetzl/ansible-dev-pc/master/bootstrap.s
 
 ### Already bootstrapped
 ```bash
-./scripts/setup.sh --interactive
+./scripts/setup.sh
 ```
 
 ## Running on a remote machine

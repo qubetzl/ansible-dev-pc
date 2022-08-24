@@ -12,7 +12,6 @@ setup_remote_env() {
 }
 
 setup_local_env() {
-    local interactive="${1}"
     packagesToInstall=""
     if ! command -v pip3 &> /dev/null
     then
@@ -26,11 +25,6 @@ setup_local_env() {
 
     if [[ -n "${packagesToInstall}" ]]
     then
-        if [[ "${interactive}" == false ]]
-        then
-            echo "Cannot install missing packages without sudo password"
-            exit 1
-        fi
         sudo apt-get update
         sudo apt-get install -y ${packagesToInstall}
     fi
@@ -51,20 +45,12 @@ install_deps() {
 
 setup() {
     local remote="${1}"
-    local interactive="${2}"
-
-    if [[ "${remote}" == false ]] && [[ "${interactive}" == false ]]
-    then
-        echo "Cannot run locally in non-interactive mode."
-        exit 1
-    fi
 
     local extraArgs=""
     if [[ "${remote}" == true ]]
     then
         extraArgs="--inventory ${REMOTE_INVENTORY_FILENAME} --extra-vars @vars/vault.yml"
-    elif [[ "${interactive}" == true ]]
-    then
+    else
         extraArgs="--ask-become-pass"
     fi
 
@@ -72,7 +58,7 @@ setup() {
     then
         setup_remote_env
     else
-        setup_local_env "${interactive}"
+        setup_local_env
     fi
 
     install_deps
@@ -95,37 +81,29 @@ See README.md for more detailed information.
 
 Options:
   -r, --remote         Run plays on the remote target(s) specified in
-                       intentory.remote. Also affects the filename of
-                       the expected vault, in case --interactive switch
-                       was not provided.
-  -i, --interactive    Make Ansible ask for passwords instead of
-                       expecting a vault and 'vault_password_file' to
-                       be present. Expected vault file changes based on
-                       --remote switch.
+                       intentory.remote and uses 'vars/vault.yml'.
   -h, --help           Show this help dialog"
   exit 0
 }
 
 main() {
-    local LONGOPTS=remote,interactive,help
-    local OPTIONS=rih
+    local LONGOPTS=remote,help
+    local OPTIONS=rh
 
     local PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@")
 
     local remote=false;
-    local interactive=false;
     for var in ${PARSED}
     do
     case "${var}" in
         "-r" | "--remote" ) remote=true;;
-        "-i" | "--interactive" ) interactive=true;;
         "-h" | "--help" ) helpFunc;;
         "--") ;;
         *) echo "Mismatch between options"; exit 1;;
     esac
     done
 
-    setup "${remote}" "${interactive}"
+    setup "${remote}"
 }
 
 main "${@}"
