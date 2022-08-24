@@ -63,12 +63,6 @@ setup() {
 
     install_deps
 
-    if [[ "${remote}" == true ]]
-    then
-        ansible-playbook ${extraArgs} bootstrap.yml
-    fi
-
-    ansible-playbook ${extraArgs} update.yml
     ansible-playbook ${extraArgs} playbook.yml
 }
 
