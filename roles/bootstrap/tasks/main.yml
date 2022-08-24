@@ -1,0 +1,9 @@
+---
+- name: Bootstrap remote environment
+  block:
+    - name: Setup ssh key login
+      ansible.posix.authorized_key:
+        user: "{{ ansible_ssh_user }}"
+        state: present
+        key: "{{ lookup('file', '{{ public_key_file_path }}') }}"
+  when: ansible_connection != 'local'

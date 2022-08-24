@@ -1,0 +1,4 @@
+---
+user: "{{ lookup('env', 'USER') }}"
+public_key_file_name: "id_rsa.pub"
+public_key_file_path: "/home/{{ user }}/.ssh/{{ public_key_file_name }}"

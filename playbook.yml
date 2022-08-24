@@ -13,8 +13,6 @@
       changed_when: false
       become: true
 
-- name: Include Bootstrap play
-  ansible.builtin.import_playbook: bootstrap.yml
 - name: Include Update play
   ansible.builtin.import_playbook: update.yml
 - name: Include Setup play
