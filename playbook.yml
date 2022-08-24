@@ -13,5 +13,9 @@
       changed_when: false
       become: true
 
-- name: Include Setup play
-  ansible.builtin.import_playbook: setup.yml
+  roles:
+    - role: bootstrap
+    - role: update
+    - role: base_system
+    - role: packages
+    - role: diodonfrost.jetbrains_toolbox
