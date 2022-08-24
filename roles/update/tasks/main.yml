@@ -1,0 +1,6 @@
+---
+- name: Make sure APT packages are updated
+  ansible.builtin.apt:
+    upgrade: "{{ apt_upgrade_mode }}"
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true
