@@ -49,7 +49,7 @@ setup() {
     local extraArgs=""
     if [[ "${remote}" == true ]]
     then
-        extraArgs="--inventory ${REMOTE_INVENTORY_FILENAME} --extra-vars @vars/vault.yml"
+        extraArgs="--inventory ${REMOTE_INVENTORY_FILENAME} --extra-vars @vars/vault.yml --vault-password-file .vault-password"
     else
         extraArgs="--ask-become-pass"
     fi
