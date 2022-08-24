@@ -2,6 +2,6 @@
 - hosts: all
 
   roles:
-    - role: base-system
+    - role: base_system
     - role: packages
     - role: diodonfrost.jetbrains_toolbox
