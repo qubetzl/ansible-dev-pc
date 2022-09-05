@@ -19,3 +19,5 @@
     - role: base_system
     - role: packages
     - role: diodonfrost.jetbrains_toolbox
+    - role: ecgalaxy.vscode
+      when: install_vscode

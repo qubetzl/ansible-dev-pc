@@ -33,3 +33,5 @@ _packages: "{{ _common_packages + (_vm_packages_extra | default([])) + (_physica
 _flatpaks:
   - com.slack.Slack
   - org.remmina.Remmina
+
+install_vscode: true
