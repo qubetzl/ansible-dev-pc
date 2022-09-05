@@ -35,3 +35,4 @@ _flatpaks:
   - org.remmina.Remmina
 
 install_vscode: true
+install_vscodium: true
