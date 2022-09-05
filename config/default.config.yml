@@ -22,6 +22,7 @@ _common_packages:
   - vim
   - xxd
   - powerline
+  - alacritty
   # Gui
   - qdirstat
   - vlc
