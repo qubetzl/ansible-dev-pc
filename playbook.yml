@@ -24,3 +24,4 @@
     - role: green_leader.codium
       become: true
       when: install_vscodium
+    - role: pyenv

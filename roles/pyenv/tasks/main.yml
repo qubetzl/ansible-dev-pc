@@ -1,0 +1,5 @@
+---
+- name: Install prerequisites
+  import_tasks: prerequisites.yml
+- name: Install Pyenv
+  import_tasks: install.yml
