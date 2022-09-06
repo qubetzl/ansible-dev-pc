@@ -23,4 +23,4 @@
         install_jetbrains_toolbox: "{{ install_jetbrains_toolbox }}"
         install_vscode: "{{ install_vscode }}"
         install_vscodium: "{{ install_vscodium }}"
-    - role: pyenv
+        install_pyenv: "{{ install_pyenv }}"

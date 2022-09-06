@@ -5,3 +5,4 @@
   when: install_vscode
 - import_tasks: vscodium.yml
   when: install_vscodium
+- import_tasks: python.yml
