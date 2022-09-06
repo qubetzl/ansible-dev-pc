@@ -2,3 +2,5 @@
 roles:
   - name: diodonfrost.jetbrains_toolbox
     version: 0.9.0
+  - name: ecgalaxy.vscode
+    version: 1.3.1

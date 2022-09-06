@@ -1,3 +1,5 @@
 ---
 - import_tasks: jetbrains_toolbox.yml
   when: install_jetbrains_toolbox
+- import_tasks: vscode.yml
+  when: install_vscode
