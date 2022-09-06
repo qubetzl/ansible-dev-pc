@@ -18,7 +18,9 @@
     - role: update
     - role: base_system
     - role: packages
-    - role: diodonfrost.jetbrains_toolbox
+    - role: dev_tools
+      vars:
+        install_jetbrains_toolbox: "{{ install_jetbrains_toolbox }}"
     - role: ecgalaxy.vscode
       when: install_vscode
     - role: green_leader.codium

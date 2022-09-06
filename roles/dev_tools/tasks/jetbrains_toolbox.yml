@@ -1,0 +1,4 @@
+---
+- name: Install JetBrains Toolbox
+  import_role:
+    name: diodonfrost.jetbrains_toolbox
