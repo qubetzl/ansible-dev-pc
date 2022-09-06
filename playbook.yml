@@ -22,7 +22,5 @@
       vars:
         install_jetbrains_toolbox: "{{ install_jetbrains_toolbox }}"
         install_vscode: "{{ install_vscode }}"
-    - role: green_leader.codium
-      become: true
-      when: install_vscodium
+        install_vscodium: "{{ install_vscodium }}"
     - role: pyenv

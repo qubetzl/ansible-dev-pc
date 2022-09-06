@@ -1,0 +1,5 @@
+---
+- name: Install VS Codium
+  import_role:
+    name: green_leader.codium
+  become: true

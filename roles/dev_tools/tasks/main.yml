@@ -3,3 +3,5 @@
   when: install_jetbrains_toolbox
 - import_tasks: vscode.yml
   when: install_vscode
+- import_tasks: vscodium.yml
+  when: install_vscodium
