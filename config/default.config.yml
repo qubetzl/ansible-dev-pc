@@ -28,6 +28,7 @@ _common_packages:
   - vlc
   - gparted
   - keepass2
+  - timeshift
 
 _packages: "{{ _common_packages + (_vm_packages_extra | default([])) + (_physical_packages_extra | default([]))}}"
 
