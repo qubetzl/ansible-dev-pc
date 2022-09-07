@@ -1,0 +1,30 @@
+---
+- name: Check if nvm is installed
+  ansible.builtin.stat:
+    path: '{{ nvm_path }}'
+  register: nvm_path_stat_result
+- name: Install NVM
+  block:
+    - name: Ensure NVM path exists
+      ansible.builtin.file:
+        path: '{{ nvm_path }}'
+        mode: '0775'
+        state: directory
+    - name: Download installer.sh script
+      ansible.builtin.get_url:
+        url: '{{ nvm_installer_script_url }}'
+        dest: '{{ nvm_installer_script_path }}'
+        checksum: '{{ nvm_installer_script_checksum }}'
+        mode: '0544'
+    - name: Execute the installer.sh script
+      ansible.builtin.command:
+        cmd: '{{ nvm_installer_script_path }}'
+        # creates: '{{ nvm_path }}/nvm.sh'
+      environment:
+        NVM_DIR: '{{ nvm_path }}'
+
+    - name: Remove the installer.sh script
+      ansible.builtin.file:
+        path: '{{ nvm_installer_script_path }}'
+        state: absent
+  when: not nvm_path_stat_result.stat.exists

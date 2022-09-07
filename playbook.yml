@@ -24,3 +24,4 @@
         install_vscode: "{{ install_vscode }}"
         install_vscodium: "{{ install_vscodium }}"
         install_pyenv: "{{ install_pyenv }}"
+        install_nvm: "{{ install_nvm }}"

@@ -3,3 +3,4 @@ install_jetbrains_toolbox: true
 install_vscode: true
 install_vscodium: true
 install_pyenv: true
+install_nvm: true

@@ -6,3 +6,4 @@
 - import_tasks: vscodium.yml
   when: install_vscodium
 - import_tasks: python.yml
+- import_tasks: node.yml
