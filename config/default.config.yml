@@ -1,6 +1,8 @@
 ---
 _common_packages:
   - ntfs-3g
+  - python3-pip
+  - python3-venv
   # Cli
   - apt-file
   - bsdutils
@@ -41,3 +43,4 @@ install_vscode: true
 install_vscodium: true
 install_pyenv: true
 install_nvm: true
+install_pipx: true

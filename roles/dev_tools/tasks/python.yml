@@ -3,3 +3,13 @@
   import_role:
     name: pyenv
   when: install_pyenv
+- name: Install Pipx
+  block:
+    - name: pipx
+      ansible.builtin.pip:
+        name: pipx
+        state: present
+        extra_args: --user
+      environment:
+        PIPX_HOME: '{{ ansible_env.HOME }}/.local/share/pipx'
+  when: install_pipx

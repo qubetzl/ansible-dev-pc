@@ -25,5 +25,6 @@
         install_vscodium: "{{ install_vscodium }}"
         install_pyenv: "{{ install_pyenv }}"
         install_nvm: "{{ install_nvm }}"
+        install_pipx: "{{ install_pipx }}"
     - role: guest_additions
       when: is_virtual_machine
