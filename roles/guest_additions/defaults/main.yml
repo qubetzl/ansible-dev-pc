@@ -1,0 +1,5 @@
+---
+guest_additions_mount_path: "/tmp/guest-additions"
+guest_additions_installer_path: "{{ guest_additions_mount_path }}/VBoxLinuxAdditions.run"
+guest_additions_config_path: /var/lib/VBoxGuestAdditions/config
+tmp_fstab_path: /tmp/tmp.fstab

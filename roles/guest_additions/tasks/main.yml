@@ -1,0 +1,56 @@
+---
+- name: Check if Guest Additions is already installed
+  ansible.builtin.stat:
+    path: '{{ guest_additions_config_path }}'
+  register: guest_additions_config_path_stat_result
+- name: Determine if we should install Guest Additions
+  set_fact:
+    should_install_guest_additions: '{{-
+        is_guest_additions_cd_inserted
+        and not is_guest_additions_already_installed
+      -}}'
+  vars:
+    is_guest_additions_already_installed: '{{ guest_additions_config_path_stat_result.stat.exists }}'
+    is_guest_additions_cd_inserted: '{{-
+        "sr0" in ansible_facts.devices
+        and ansible_facts.devices["sr0"].links.labels | length>0
+        and ansible_facts.devices["sr0"].links.labels[0] is match("VBox_GAs_*")
+      -}}'
+- name: Install Guest Additions
+  block:
+    - name: Load kernel module for iso9660 filesystem support
+      community.general.modprobe:
+        name: isofs
+        state: present
+      become: true
+    - name: Mount Guest additions CD
+      ansible.posix.mount:
+        path: "{{ guest_additions_mount_path }}"
+        src: /dev/sr0
+        fstab: "{{ tmp_fstab_path }}"
+        fstype: iso9660
+        state: mounted
+      become: true
+    - name: Run installer
+      command:
+        cmd: "{{ guest_additions_installer_path }}"
+        creates: "{{ guest_additions_config_path }}"
+      register: installer_result
+      become: true
+      failed_when:
+        # For some reason the exit code is 2, when the installation completes normally.
+        - installer_result.rc != 2
+        - '"Did not run command since" not in installer_result.msg'
+    - name: Unmount Guest additions CD
+      ansible.posix.mount:
+        path: "{{ guest_additions_mount_path }}"
+        src: /dev/sr0
+        fstab: "{{ tmp_fstab_path }}"
+        state: unmounted
+      become: true
+    - name: Remove temporary fstab
+      ansible.builtin.file:
+        path: "{{ tmp_fstab_path }}"
+        state: absent
+      become: true
+  when: should_install_guest_additions

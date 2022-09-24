@@ -14,4 +14,6 @@
     filename: brave-browser-release
     update_cache: true
     state: present
+    update_cache_retries: "{{ apt_lock_timeout // 10 }}"
+    update_cache_retry_max_delay: 10
   become: true
