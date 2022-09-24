@@ -1,12 +1,11 @@
 - name: Ensure Flatpak is installed
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name:
+      - flatpak
+      - flatpak-xdg-utils
     state: present
     lock_timeout: "{{ apt_lock_timeout }}"
   become: true
-  loop:
-    - flatpak
-    - flatpak-xdg-utils
 
 - name: Configure Flatpak repo
   community.general.flatpak_remote:

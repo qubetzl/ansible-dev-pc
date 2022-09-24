@@ -1,8 +1,7 @@
 ---
 - name: Make sure APT packages are installed
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name: "{{ packages }}"
     state: present
     lock_timeout: "{{ apt_lock_timeout }}"
-  loop: "{{ packages }}"
   become: true
