@@ -2,4 +2,4 @@
 - name: Install NVM
   import_role:
     name: nvm
-  when: install_nvm
+  when: dev_tools_install_nvm

@@ -1,7 +1,7 @@
 ---
-install_jetbrains_toolbox: true
-install_vscode: true
-install_vscodium: true
-install_pyenv: true
-install_nvm: true
-install_pipx: true
+dev_tools_install_jetbrains_toolbox: true
+dev_tools_install_vscode: true
+dev_tools_install_vscodium: true
+dev_tools_install_pyenv: true
+dev_tools_install_nvm: true
+dev_tools_install_pipx: true

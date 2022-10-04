@@ -1,9 +1,9 @@
 ---
 - import_tasks: jetbrains_toolbox.yml
-  when: install_jetbrains_toolbox
+  when: dev_tools_install_jetbrains_toolbox
 - import_tasks: vscode.yml
-  when: install_vscode
+  when: dev_tools_install_vscode
 - import_tasks: vscodium.yml
-  when: install_vscodium
+  when: dev_tools_install_vscodium
 - import_tasks: python.yml
 - import_tasks: node.yml

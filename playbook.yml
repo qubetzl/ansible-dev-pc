@@ -20,11 +20,11 @@
     - role: packages
     - role: dev_tools
       vars:
-        install_jetbrains_toolbox: "{{ install_jetbrains_toolbox }}"
-        install_vscode: "{{ install_vscode }}"
-        install_vscodium: "{{ install_vscodium }}"
-        install_pyenv: "{{ install_pyenv }}"
-        install_nvm: "{{ install_nvm }}"
-        install_pipx: "{{ install_pipx }}"
+        dev_tools_install_jetbrains_toolbox: "{{ install_jetbrains_toolbox }}"
+        dev_tools_install_vscode: "{{ install_vscode }}"
+        dev_tools_install_vscodium: "{{ install_vscodium }}"
+        dev_tools_install_pyenv: "{{ install_pyenv }}"
+        dev_tools_install_nvm: "{{ install_nvm }}"
+        dev_tools_install_pipx: "{{ install_pipx }}"
     - role: guest_additions
       when: is_virtual_machine
