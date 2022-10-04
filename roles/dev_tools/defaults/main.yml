@@ -5,3 +5,6 @@ dev_tools_install_vscodium: true
 dev_tools_install_pyenv: true
 dev_tools_install_nvm: true
 dev_tools_install_pipx: true
+
+dev_tools_vscode_extensions: []
+dev_tools_vscodium_extensions: []

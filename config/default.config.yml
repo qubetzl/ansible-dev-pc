@@ -44,3 +44,14 @@ install_vscodium: true
 install_pyenv: true
 install_nvm: true
 install_pipx: true
+vscode_extensions:
+  - eamodio.gitlens
+  - ms-python.python
+  - ms-azuretools.vscode-docker
+  - editorconfig.editorconfig
+  - wayou.vscode-todo-highlight
+  - foxundermoon.shell-format
+  - redhat.vscode-yaml
+  - bungcip.better-toml
+  - hashicorp.terraform
+vscodium_extensions: "{{ vscode_extensions }}"

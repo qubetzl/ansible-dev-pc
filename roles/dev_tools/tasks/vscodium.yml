@@ -3,3 +3,8 @@
   import_role:
     name: green_leader.codium
   become: true
+- name: Install VS Codium extensions
+  ansible.builtin.command: "codium --install-extension {{ item }}"
+  with_items: "{{ dev_tools_vscodium_extensions }}"
+  register: result
+  changed_when: "'already installed' not in result.stdout"

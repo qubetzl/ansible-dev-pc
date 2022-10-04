@@ -26,5 +26,7 @@
         dev_tools_install_pyenv: "{{ install_pyenv }}"
         dev_tools_install_nvm: "{{ install_nvm }}"
         dev_tools_install_pipx: "{{ install_pipx }}"
+        dev_tools_vscode_extensions: "{{ vscode_extensions }}"
+        dev_tools_vscodium_extensions: "{{ vscodium_extensions }}"
     - role: guest_additions
       when: is_virtual_machine

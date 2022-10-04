@@ -2,3 +2,5 @@
 - name: Install VS Code
   import_role:
     name: ecgalaxy.vscode
+  vars:
+    vscode_extensions: "{{ dev_tools_vscode_extensions }}"
