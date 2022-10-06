@@ -37,3 +37,4 @@ https://github.com/buluma/ansible_workstation
 https://github.com/devroles/ansible_collection_system
 https://github.com/ghyde/ansible-role-flatpak ?
 https://github.com/crivetimihai/ansible_virtualization
+https://github.com/LearnLinuxTV/personal_ansible_desktop_configs
