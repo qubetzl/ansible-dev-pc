@@ -1,0 +1,7 @@
+---
+- name: Ensure dconf settings
+  community.general.dconf:
+    key: "{{ item.key }}"
+    value: "{{ item.value | string }}"
+    state: present
+  with_items: "{{ desktop_environment_gnome_dconf_settings }}"

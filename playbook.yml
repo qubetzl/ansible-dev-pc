@@ -30,3 +30,4 @@
         dev_tools_vscodium_extensions: "{{ vscodium_extensions }}"
     - role: guest_additions
       when: is_virtual_machine
+    - role: desktop_environment

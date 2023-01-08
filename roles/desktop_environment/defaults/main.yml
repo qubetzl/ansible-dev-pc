@@ -1,0 +1,53 @@
+---
+desktop_environment_gnome_dconf_settings:
+  - key: '/org/gnome/desktop/interface/color-scheme'
+    value: "'prefer-dark'"
+  - key: '/org/gnome/desktop/interface/clock-format'
+    value: "'24h'"
+  - key: '/org/gnome/desktop/privacy/report-technical-problems'
+    value: "false"
+  - key: '/org/gnome/system/location/enabled'
+    value: "false"
+  - key: '/org/gnome/mutter/dynamic-workspaces'
+    value: "true"
+  - key: '/org/gnome/settings-daemon/plugins/color/night-light-enabled'
+    value: "true"
+  - key: '/org/gnome/settings-daemon/plugins/color/night-light-schedule-automatic'
+    value: "true"
+  - key: '/org/gtk/settings/file-chooser/clock-format'
+    value: "'24h'"
+  - key: '/org/gnome/desktop/input-sources/per-window'
+    value: "false"
+  - key: '/org/gnome/desktop/input-sources/sources'
+    value: "[('xkb', 'us'), ('xkb', 'bg+phonetic')]"
+  - key: '/org/gnome/shell/favorite-apps'
+    value:
+      - brave-browser.desktop
+      - firefox.desktop
+      - com.alacritty.Alacritty.desktop
+      - org.gnome.Terminal.desktop
+      - code.desktop
+      - codium.desktop
+  # Extensions
+  ## Dash to dock
+  - key: '/org/gnome/shell/extensions/dash-to-dock/dock-alignment'
+    value: "'CENTER'"
+  - key: '/org/gnome/shell/extensions/dash-to-dock/dock-position'
+    value: "'BOTTOM'"
+  - key: '/org/gnome/shell/extensions/dash-to-dock/extend-height'
+    value: "true"
+  - key: '/org/gnome/shell/extensions/dash-to-dock/manualhide'
+    value: "false"
+  - key: '/org/gnome/shell/extensions/dash-to-dock/show-mounts'
+    value: "true"
+  ## PopOS Cosmic
+  - key: '/org/gnome/shell/extensions/pop-cosmic/clock-alignment'
+    value: "'CENTER'"
+  - key: '/org/gnome/shell/extensions/pop-cosmic/overlay-key-action'
+    value: "'LUNCHER'"
+  - key: '/org/gnome/shell/extensions/pop-cosmic/show-applications-button'
+    value: "true"
+  - key: '/org/gnome/shell/extensions/pop-cosmic/show-workspaces-button'
+    value: "false"
+  - key: '/org/gnome/shell/extensions/pop-cosmic/workspace-picker-left'
+    value: "true"
