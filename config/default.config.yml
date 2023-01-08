@@ -31,6 +31,7 @@ _common_packages:
   - gparted
   - keepass2
   - timeshift
+  - brave-browser
 
 _packages: "{{ _common_packages + (_vm_packages_extra | default([])) + (_physical_packages_extra | default([]))}}"
 
