@@ -32,6 +32,7 @@ Before running the setup script, make sure to:
 ```
 
 ## Inspiration
+- https://github.com/ironicbadger/infra
 - https://github.com/crivetimihai/ansible_workstation
 - https://github.com/buluma/ansible_workstation
 - https://github.com/devroles/ansible_collection_system
