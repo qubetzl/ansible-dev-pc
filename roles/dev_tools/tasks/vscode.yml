@@ -1,6 +1,15 @@
 ---
 - name: Install VS Code
+  ansible.builtin.apt:
+    name: code
+    state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true
+- name: Install extentions for VS Code
   import_role:
-    name: ecgalaxy.vscode
+    name: gantsign.visual-studio-code-extensions
   vars:
-    vscode_extensions: "{{ dev_tools_vscode_extensions }}"
+    users:
+      - username: "{{ ansible_user_id }}"
+        visual_studio_code_extensions: "{{ dev_tools_vscode_extensions }}"
+  become: true

@@ -5,7 +5,7 @@ collections:
 roles:
   - name: diodonfrost.jetbrains_toolbox
     version: 0.9.0
-  - name: ecgalaxy.vscode
-    version: 1.3.1
+  - name: gantsign.visual-studio-code-extensions
+    version: 2.4.0
   - name: green_leader.codium
     version: 1.0.4
