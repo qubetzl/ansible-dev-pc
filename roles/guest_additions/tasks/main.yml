@@ -53,4 +53,5 @@
         path: "{{ tmp_fstab_path }}"
         state: absent
       become: true
+  notify: Reboot machine
   when: should_install_guest_additions
