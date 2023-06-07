@@ -1,7 +1,8 @@
 ---
 pyenv_root_path: "{{ ansible_env.HOME }}/.local/share/pyenv"
-pyenv_installer_script_url: 'https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer'
-pyenv_installer_script_checksum: 'sha256:33ba007f17d31215349fd0a693a77fd3d332063fb3a44b8994dfde87728b94e1'
+pyenv_installer_commit_id: 'ceaff5492cb3ebe962c8b7ad1b408dab9a56e71b'
+pyenv_installer_script_url: 'https://github.com/pyenv/pyenv-installer/raw/{{ pyenv_installer_commit_id }}/bin/pyenv-installer'
+pyenv_installer_script_checksum: 'sha256:2459846fd01ab383fb9dcf6854116ab6b044039dc34ab2485085473a48d28b64'
 pyenv_installer_script_path: /tmp/pyenv-installer
 
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
