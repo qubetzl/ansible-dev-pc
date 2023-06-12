@@ -1,0 +1,4 @@
+---
+dotfiles_repo: "https://github.com/qubetzl/dotfiles.git"
+dotfiles_repo_version: master
+dotfiles_install_path: '{{ ansible_env.HOME }}/dotfiles'

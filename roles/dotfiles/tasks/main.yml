@@ -1,0 +1,12 @@
+---
+- name: Ensure dotfiles repository is cloned locally.
+  ansible.builtin.git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_install_path }}"
+    version: "{{ dotfiles_repo_version }}"
+    accept_newhostkey: true
+- name: Run dotfiles' bootstrap script
+  ansible.builtin.command:
+    cmd: './install'
+    chdir: "{{ dotfiles_install_path }}"
+  changed_when: false

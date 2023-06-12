@@ -31,3 +31,4 @@
     - role: guest_additions
       when: is_virtual_machine
     - role: desktop_environment
+    - role: dotfiles
