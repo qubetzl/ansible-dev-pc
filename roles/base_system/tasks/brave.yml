@@ -6,7 +6,7 @@
     owner: root
     group: root
     mode: u=rw,g=r,o=r
-    checksum: sha256:3cc5fd084c3c3fb9d03bd6de88c32e78822b7d84f0c7ce95d7933c57f3b85648
+    checksum: sha256:e05b93286d10004466c0dbac1b648f4f7c0d5cb81e2eaa86ee727f8dfd7916da.
   become: true
 - name: Setup APT sources
   ansible.builtin.apt_repository:
