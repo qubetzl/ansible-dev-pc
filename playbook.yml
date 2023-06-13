@@ -32,3 +32,4 @@
       when: is_virtual_machine
     - role: desktop_environment
     - role: dotfiles
+    - role: nerd_fonts

@@ -1,0 +1,27 @@
+---
+- name: Check if font is already installed
+  ansible.builtin.stat:
+    path: '{{ [nerd_fonts_fonts_path, item.name] | path_join }}'
+  register: font_path_stat_result
+- name: Install font
+  block:
+    - name: Ensure font directory is present
+      ansible.builtin.file:
+        path: '{{ [nerd_fonts_fonts_path, item.name] | path_join }}'
+        mode: '0775'
+        state: directory
+    - name: Download font archive
+      ansible.builtin.get_url:
+        url: "{{ [nerd_fonts_release_url, archive_name] | path_join }}"
+        dest: '/tmp/{{ archive_name }}'
+        checksum: '{{ item.hash }}'
+        mode: '0544'
+    - name: Extract font
+      ansible.builtin.unarchive:
+        src: '/tmp/{{ archive_name }}'
+        remote_src: true
+        dest: '{{ nerd_fonts_fonts_path }}'
+        owner: '{{ ansible_user }}'
+        group: '{{ ansible_user }}'
+        mode: '0544'
+  when: not font_path_stat_result.stat.exists

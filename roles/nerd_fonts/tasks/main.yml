@@ -1,0 +1,11 @@
+---
+- name: Ensure user fonts directory is present
+  ansible.builtin.file:
+    path: '{{ nerd_fonts_fonts_path }}'
+    mode: '0775'
+    state: directory
+- name: Install Nerd Fonts
+  include_tasks: install_nerd_font.yml
+  vars:
+    archive_name: '{{ item.name}}.tar.xz'
+  loop: "{{ nerd_fonts_font_list }}"

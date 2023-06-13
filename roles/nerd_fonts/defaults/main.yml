@@ -1,0 +1,10 @@
+---
+nerd_fonts_repo_url: 'https://github.com/ryanoasis/nerd-fonts'
+nerd_fonts_fonts_path: '{{ ansible_env.HOME }}/.local/share/fonts'
+nerd_fonts_release: 'v3.0.2'
+nerd_fonts_release_url: '{{ [nerd_fonts_repo_url, "releases/download", nerd_fonts_release] | path_join }}'
+nerd_fonts_font_list:
+  - name: 'FiraCode'
+    hash: 'sha256:76c1d691cea44b0cae4d6add56bb3ef52b83cedebb1c5f519b62d068f8586b93'
+  - name: 'JetBrainsMono'
+    hash: 'sha256:4991258b7c97071238a7459f0d3bf81a893ae7b0c849dbc47ad52833a8db7f55'
