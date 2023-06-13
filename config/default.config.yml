@@ -3,6 +3,7 @@ _common_packages:
   - ntfs-3g
   - python3-pip
   - python3-venv
+  - libfuse2
   # Cli
   - apt-file
   - bsdutils
