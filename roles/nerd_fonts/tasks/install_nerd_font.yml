@@ -21,7 +21,7 @@
         src: '/tmp/{{ archive_name }}'
         remote_src: true
         dest: '{{ nerd_fonts_fonts_path }}'
-        owner: '{{ ansible_user }}'
-        group: '{{ ansible_user }}'
+        owner: '{{ ansible_user_id }}'
+        group: '{{ ansible_user_id }}'
         mode: '0544'
   when: not font_path_stat_result.stat.exists
