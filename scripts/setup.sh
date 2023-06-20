@@ -29,7 +29,7 @@ setup_local_env() {
         sudo apt-get install -y ${packagesToInstall}
     fi
 
-    [ ! -d "venv" ] && python3 -m venv venv
+    [ ! -d "venv" ] && python3 -m venv --system-site-packages venv
 
     source venv/bin/activate
     if ! command -v ansible &> /dev/null

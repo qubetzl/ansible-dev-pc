@@ -8,5 +8,6 @@ fi
 
 [ ! -d ~/ansible-dev-pc ] && git clone https://github.com/qubetzl/ansible-dev-pc.git ~/ansible-dev-pc
 pushd ~/ansible-dev-pc
+git checkout try-ansible-pull
 git pull --rebase
 bash scripts/setup.sh

@@ -9,6 +9,7 @@
       ansible.builtin.pip:
         name: pipx
         state: present
+        executable: /usr/bin/pip3
         extra_args: --user
       environment:
         PIPX_HOME: '{{ ansible_env.HOME }}/.local/share/pipx'
