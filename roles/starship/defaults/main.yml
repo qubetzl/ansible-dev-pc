@@ -1,0 +1,8 @@
+---
+starship_repo_url: 'https://github.com/starship/starship'
+starship_install_path: '{{ ansible_env.HOME }}/bin'
+starship_archive_name: 'starship-x86_64-unknown-linux-gnu.tar.gz'
+starship_temp_path: '/tmp/{{ starship_archive_name }}'
+starship_release: 'v1.15.0'
+starship_release_archive_url: '{{ [ starship_repo_url, "releases/download", starship_release, starship_archive_name ] | path_join }}'
+starship_archive_checksum: 'sha256:d7269514fa450678790f37d41c691e4a80492b127b861e30e252a6646040b615'

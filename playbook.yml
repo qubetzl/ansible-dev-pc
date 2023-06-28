@@ -33,3 +33,4 @@
     - role: desktop_environment
     - role: dotfiles
     - role: nerd_fonts
+    - role: starship

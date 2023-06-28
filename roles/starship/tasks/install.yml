@@ -1,0 +1,33 @@
+---
+- name: Check if Starship is installed
+  ansible.builtin.stat:
+    path: '{{ [ starship_install_path, "starship" ] | path_join }}'
+  register: starship_installed_path_stat_result
+- name: Install Starship
+  block:
+    - name: Ensure install path exists
+      ansible.builtin.file:
+        path: '{{ starship_install_path }}'
+        state: directory
+        mode: '0755'
+        owner: '{{ ansible_user_id }}'
+        group: '{{ ansible_user_id }}'
+    - name: Download Starship pre-built binary archive
+      ansible.builtin.get_url:
+        url: '{{ starship_release_archive_url }}'
+        dest: '{{ starship_temp_path }}'
+        checksum: '{{ starship_archive_checksum }}'
+        mode: '0544'
+    - name: Extract Starship pre-built binary
+      ansible.builtin.unarchive:
+        src: '{{ starship_temp_path }}'
+        dest: "{{ starship_install_path }}"
+        mode: '0744'
+        remote_src: true
+        owner: '{{ ansible_user_id }}'
+        group: '{{ ansible_user_id }}'
+    - name: Remove the pre-built binary archive
+      ansible.builtin.file:
+        path: '{{ starship_temp_path }}'
+        state: absent
+  when: not starship_installed_path_stat_result.stat.exists
