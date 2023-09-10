@@ -10,7 +10,6 @@
 - name: Configure Flatpak repo
   community.general.flatpak_remote:
     name: flathub
-    method: system
+    method: user
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     state: present
-  become: true
