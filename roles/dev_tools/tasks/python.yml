@@ -4,12 +4,9 @@
     name: pyenv
   when: dev_tools_install_pyenv
 - name: Install Pipx
-  block:
-    - name: pipx
-      ansible.builtin.pip:
-        name: pipx
-        state: present
-        extra_args: --user
-      environment:
-        PIPX_HOME: '{{ ansible_env.HOME }}/.local/share/pipx'
+  ansible.builtin.apt:
+    name: pipx
+    state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true
   when: dev_tools_install_pipx
