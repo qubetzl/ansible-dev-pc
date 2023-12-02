@@ -21,7 +21,6 @@ _common_packages:
   - telnet
   - testdisk
   - tree
-  - unrar
   - vim
   - xxd
   - powerline
