@@ -1,0 +1,6 @@
+---
+- name: update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true

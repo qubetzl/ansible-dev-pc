@@ -1,0 +1,5 @@
+ansible-core
+black
+isort
+pip-tools
+pytest

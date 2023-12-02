@@ -1,0 +1,30 @@
+- name: Ensure extrepo is installed
+  ansible.builtin.apt:
+    name: extrepo
+    state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true
+
+- name: Enable non-free repositories
+  ansible.builtin.replace:
+    path: /etc/extrepo/config.yaml
+    regexp: "{{ item.regexp }}"
+    replace: "{{ item.replace }}"
+  loop:
+    - regexp: "^# - contrib$"
+      replace: "- contrib"
+    - regexp: "^# - non-free$"
+      replace: "- non-free"
+  become: true
+  when: extrepo_allow_non_free_repositories
+
+- name: Enable extrepo repositories
+  extrepo_repository:
+    repository_name: "{{ item }}"
+    state: enabled
+  loop: "{{ extrepo_enabled_repositories }}"
+  notify: update apt cache
+  become: true
+
+- name: Flush handlers
+  meta: flush_handlers
