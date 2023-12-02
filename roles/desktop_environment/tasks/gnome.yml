@@ -1,4 +1,8 @@
 ---
+- name: Ensure GNOME's initial setup screen is marked as complete
+  ansible.builtin.copy:
+    content: "yes"
+    dest: "{{ ansible_env.HOME }}/.config/gnome-initial-setup-done"
 - name: Ensure dconf settings
   community.general.dconf:
     key: "{{ item.key }}"
