@@ -57,3 +57,6 @@ vscode_extensions:
   - bungcip.better-toml
   - hashicorp.terraform
 vscodium_extensions: "{{ vscode_extensions }}"
+
+default_extrepo_repositories:
+  - 'brave_release'

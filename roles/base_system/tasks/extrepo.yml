@@ -1,6 +1,7 @@
 ---
-- name: Ensure extrepo is installed and configured
+- name: Ensure extrepo is setup and default repositories are enabled
   import_role:
     name: extrepo
   vars:
     extrepo_allow_non_free_repositories: true
+    extrepo_enabled_repositories: "{{ default_extrepo_repositories }}"
