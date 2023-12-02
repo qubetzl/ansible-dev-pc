@@ -1,4 +1,11 @@
 ---
+- name: Ensure VS Code's repository is present
+  import_role:
+    name: extrepo
+  vars:
+    extrepo_allow_non_free_repositories: true
+    extrepo_enabled_repositories:
+      - vscode
 - name: Install VS Code
   ansible.builtin.apt:
     name: code
