@@ -54,7 +54,7 @@ vscode_extensions:
   - wayou.vscode-todo-highlight
   - foxundermoon.shell-format
   - redhat.vscode-yaml
-  - bungcip.better-toml
+  - tamasfe.even-better-toml
   - hashicorp.terraform
 vscodium_extensions: "{{ vscode_extensions }}"
 
