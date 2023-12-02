@@ -1,9 +1,18 @@
 ---
-- name: Install VS Codium
+- name: Ensure VSCodium's repository is present
   import_role:
-    name: green_leader.codium
+    name: extrepo
+  vars:
+    extrepo_allow_non_free_repositories: false
+    extrepo_enabled_repositories:
+      - vscodium
+- name: Install VSCodium
+  ansible.builtin.apt:
+    name: codium
+    state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
   become: true
-- name: Install VS Codium extensions
+- name: Install VSCodium extensions
   ansible.builtin.command: "codium --install-extension {{ item }}"
   with_items: "{{ dev_tools_vscodium_extensions }}"
   register: result
