@@ -45,6 +45,7 @@ install_vscodium: true
 install_pyenv: true
 install_nvm: true
 install_pipx: true
+install_docker: true
 vscode_extensions:
   - eamodio.gitlens
   - ms-python.python

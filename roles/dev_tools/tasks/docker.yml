@@ -1,0 +1,5 @@
+---
+- name: Install Docker
+  import_role:
+    name: docker
+  when: dev_tools_install_docker

@@ -7,3 +7,4 @@
   when: dev_tools_install_vscodium
 - import_tasks: python.yml
 - import_tasks: node.yml
+- import_tasks: docker.yml
