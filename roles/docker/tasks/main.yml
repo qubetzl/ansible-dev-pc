@@ -1,0 +1,33 @@
+---
+- name: Ensure Docker's repository is present
+  import_role:
+    name: extrepo
+  vars:
+    extrepo_enabled_repositories:
+      - docker-ce
+
+- name: Install Docker
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: present
+    lock_timeout: "{{ apt_lock_timeout }}"
+  become: true
+
+- name: "Add user to the 'docker' group"
+  ansible.builtin.user:
+    name: '{{ ansible_user }}'
+    groups: docker
+    append: true
+  become: true
+
+- name: Start and enable Docker daemon
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true
+  become: true
