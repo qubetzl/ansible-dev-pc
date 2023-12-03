@@ -29,6 +29,8 @@ desktop_environment_gnome_dconf_settings:
       - org.gnome.Terminal.desktop
       - code.desktop
       - codium.desktop
+  - key: '/org/gnome/desktop/wm/preferences/button-layout'
+    value: "'appmenu:minimize,maximize,close'"
 
 # Extensions
 ## Dash to dock
