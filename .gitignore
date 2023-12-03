@@ -1,6 +1,7 @@
 # Dev env
 .cache
 .vault-password
+.vscode/
 
 # During setup
 .collections
