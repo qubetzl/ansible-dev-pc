@@ -29,8 +29,10 @@ desktop_environment_gnome_dconf_settings:
       - org.gnome.Terminal.desktop
       - code.desktop
       - codium.desktop
-  # Extensions
-  ## Dash to dock
+
+# Extensions
+## Dash to dock
+desktop_environment_dash_to_dock_dconf_settings:
   - key: '/org/gnome/shell/extensions/dash-to-dock/dock-alignment'
     value: "'CENTER'"
   - key: '/org/gnome/shell/extensions/dash-to-dock/dock-position'
@@ -41,7 +43,9 @@ desktop_environment_gnome_dconf_settings:
     value: "false"
   - key: '/org/gnome/shell/extensions/dash-to-dock/show-mounts'
     value: "true"
-  ## PopOS Cosmic
+
+## PopOS Cosmic
+desktop_environment_pop_cosmic_dconf_settings:
   - key: '/org/gnome/shell/extensions/pop-cosmic/clock-alignment'
     value: "'CENTER'"
   - key: '/org/gnome/shell/extensions/pop-cosmic/overlay-key-action'
