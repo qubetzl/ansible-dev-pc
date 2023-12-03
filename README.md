@@ -1,6 +1,6 @@
 # Dev PC setup
 
-This repository sets-up my dev environment from a fresh PopOS install
+This repository sets-up my dev environment from a fresh Debian (GNOME) install
 
 # Running
 
