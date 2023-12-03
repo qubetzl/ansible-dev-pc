@@ -1,3 +1,9 @@
 ---
+# This is a crude way of detecting whether GNOME is installed
+- name: Check if GNOME is installed
+  ansible.builtin.stat:
+    path: '/usr/bin/gnome-session'
+  register: gnome_session_path_stat_result
 - name: Customize Gnome
   import_tasks: gnome.yml
+  when: gnome_session_path_stat_result.stat.exists
